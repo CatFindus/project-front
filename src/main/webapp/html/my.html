@@ -3,9 +3,95 @@
     <title>RPG</title>
     <script src=https://code.jquery.com/jquery-3.6.0.min.js></script>
     <link href="/css/my.css" rel="stylesheet">
+    <script src="../js/script.js" defer></script>
 </head>
 <body>
-<h1>RPG admin panel</h1>
+<header><h1>RPG admin panel</h1></header>
+<section>
+    <div><h2>Account list:</h2></div>
+    <div>
+        <label for="id_count">Count per page:</label><select name="count" id="id_count" onchange="goToPage(0)">
+            <option value="3">3</option>
+            <option value="5" selected="selected">5</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+        </select>
+    </div>
+    <table class="table_table">
+        <thead>
+            <tr>
+                <th class="table_th">#</th>
+                <th class="table_th">Name</th>
+                <th class="table_th">Title</th>
+                <th class="table_th">Race</th>
+                <th class="table_th">Profession</th>
+                <th class="table_th">Level</th>
+                <th class="table_th">Birthday</th>
+                <th class="table_th">Banned</th>
+                <th class="table_th">Edit</th>
+                <th class="table_th">Delete</th>
+                
+            </tr>
+        </thead>
+        <tbody id="mtable" class="table_tbody">
 
+        </tbody>
+    </table>
+</section>
+<footer>
+    <div id="page_count">
+        <span>Pages:</span>
+    </div>
+    <hr/>
+    <div><h2>Add account:</h2></div>
+    <table class="table_table">
+        <thead>
+        <tr>
+            <th class="table_th_in">Name</th>
+            <th class="table_th_in">Title</th>
+            <th class="table_th_in">Race</th>
+            <th class="table_th_in">Profession</th>
+            <th class="table_th_in">Level</th>
+            <th class="table_th_in">Birthday</th>
+            <th class="table_th_in">Banned</th>
+            <th class="table_th_in">Save</th>
+        </tr>
+        <tr>
+            <th class="table_in"><input id='add_name' class="button-28" type="text" maxlength="12" minlength="1"></th>
+            <th class="table_in"><input id='add_title' class="button-28" type="text" maxlength="30" minlength="1"></th>
+            <th class="table_in">
+                <select id='add_race' class="button-28">
+                    <option>HUMAN</option>
+                    <option>DWARF</option>
+                    <option>ELF</option>
+                    <option>GIANT</option>
+                    <option>ORC</option>
+                    <option>TROLL</option>
+                    <option>HOBBIT</option>
+                </select></th>
+            <th class="table_in">
+                <select id='add_profession' class="button-28">
+                    <option>WARRIOR</option>
+                    <option>ROGUE</option>
+                    <option>SORCERER</option>
+                    <option>CLERIC</option>
+                    <option>PALADIN</option>
+                    <option>NAZGUL</option>
+                    <option>WARLOCK</option>
+                    <option>DRUID</option>
+                </select></th>
+            </th>
+            <th class="table_in"><input id='add_level' class="button-28" type="number" max="100" min="0"></th>
+            <th class="table_in"><input id='add_date' class="button-28" type="date"></th>
+            <th class="table_in">
+                <select id='add_banned' class="button-28">
+                    <option>false</option>
+                    <option>true</option>
+                </select></th>
+            <th class="table_in"><input id='add_button' class="button-28" type="button" value="Save" onclick="addElement()"></th>
+        </tr>
+        </thead>
+    </table>
+</footer>
 </body>
 </html>
